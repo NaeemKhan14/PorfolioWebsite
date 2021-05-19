@@ -47,33 +47,6 @@ h3 { font-size: 37px; }
 h4 { font-size: 15px; }
 h5 { font-size: 11px; }
 
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-input, textarea {
-    width: 50%;
-    padding: 10px;
-    border: 1px solid var(--navColor);
-    border-radius: 5px;
-    margin-bottom: 1%;
-}
-
-input[type=submit] {
-    width: 10%;
-    color: var(--navColor);
-    background-color: transparent;
-}
-input[type=submit]:hover {
-    color: var(--navHovorColor);
-    background-color: var(--navColor);
-}
-input[type=submit]:active {
-    color: var(--navColor);
-    background-color: var(--navHovorColor);
-}
-
 ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: var(--secondaryColor);
@@ -119,7 +92,7 @@ Main container
 .main-container {
     width: 1200px;
     margin: 0 auto;
-    padding: 10px;
+    padding: 1%;
 }
 
 /*************
@@ -203,11 +176,53 @@ S1 content/ About content
 /***********
 Contact Form
 ************/
-
-/* .contact-form {
+form {
+    position: relative;
+    min-height: 440px;
     display: flex;
+    flex-direction: column;
+    width: 50%;
     justify-content: center;
-} */
+    align-items: center;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.5em;
+    margin-top: 0;
+    border: 1px solid var(--navColor);
+    border-radius: 5px;
+    margin-bottom: 1%;
+}
+
+input[type=submit] {
+    width: 21%;
+    color: var(--navColor);
+    background-color: transparent;
+}
+
+input[type=submit]:hover {
+    color: var(--navHovorColor);
+    background-color: var(--navColor);
+}
+
+input[type=submit]:active {
+    color: var(--navColor);
+    background-color: var(--navHovorColor);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-form > form > input[type=submit] {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
 
 /*****
 Footer
@@ -273,5 +288,11 @@ Media Queries
     }
     .about-left {
         align-items: center;
+    }
+    form {
+        width: 100%;
+    }
+    input, textarea, input[type=submit] {
+        width: 100%;
     }
 }
