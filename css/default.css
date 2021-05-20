@@ -1,7 +1,7 @@
 :root {
-    --primaryTextColor: #000000;
-    --secondaryTextColor: #ffffff;
-    --primaryColor: #ffffff;
+    --primaryTextColor: #212529;
+    --secondaryTextColor: #f5f5f5;
+    --primaryColor: #f7f7f7;
     --secondaryColor: #EBEBEB;
     --navColor: #EF5DA8;
     --navHovorColor: #ffffff;
@@ -14,24 +14,41 @@
     margin: 0;
     padding: 0;
     border: 0;
+    box-sizing: border-box;
 }
 
 /***************************
 Overwrite default properties
 ****************************/
+
 body {
     font-family: 'Roboto Slab', serif;
     font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--primaryTextColor);
+    background-color: var(--primaryColor);
 }
+
 h1, h2, h3, h4, h5, h6, strong {
     color: var(--primaryTextColor);
     font-family: 'Raleway', sans-serif;
+    margin-top: 0;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
 }
 
 p, li, span, label, input, textarea {
     color: var(--primaryTextColor);
 }
 
+p, ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+img { vertical-align: middle; }
 a {
     text-decoration: none;
     color: var(--navColor);
@@ -41,10 +58,12 @@ a:hover, input[type=submit]:hover {
     color: var(--navHovorColor);
     background-color: var(--navColor);
 }
+
 a:active, input[type=submit]:active {
     color: var(--navColor);
     background-color: var(--navHovorColor);
 }
+
 ul {
     padding: 0;
     list-style-type: none;
@@ -60,16 +79,12 @@ h5 { font-size: 21px; }
 Sections
 ********/
 
-.s1, .s2, .s4 {
+.s2, .s4 {
     background-color: var(--primaryColor);
 }
 
-.s3, .s5 {
+.s1, .s3, .s5 {
     background-color: var(--secondaryColor);
-}
-
-.s1 {
-    margin-bottom: 5%;
 }
 
 .s5 * {
@@ -95,6 +110,7 @@ Navigation bar
     display: flex;
     grid-template-columns: 1fr 1fr;
     justify-content: space-between;
+    background-color: var(--secondaryColor);
 }
 
 .btnNav {
@@ -115,6 +131,20 @@ Navigation bar
 
 .nav-right>p {
     font-size: 15px;
+}
+
+.hamburger {
+    display: none;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #101010;
 }
 
 /*************************
@@ -140,6 +170,7 @@ S1 content/ About content
     text-align: center;
     border-bottom: 1px solid var(--borderColor);
 }
+
 .face-plant {
     margin-bottom: 5%;
 }
@@ -158,9 +189,11 @@ S1 content/ About content
     position: relative;
     top: 5px;
 }
+
 /****
 Cards
 *****/
+
 .content-cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -169,7 +202,8 @@ Cards
 
 .body-card {
     position: relative;
-    justify-self: center; /* grid property */
+    justify-self: center;
+    /* grid property */
     display: flex;
     flex-direction: column;
     background-color: var(--primaryColor);
@@ -178,17 +212,20 @@ Cards
     padding: 1em;
     margin: 3%
 }
+
 .title-card {
     margin-bottom: 1%;
     font-weight: 600;
     font-size: 20px;
     border-bottom: 1px solid var(--borderColor);
 }
+
 .content-card {
     height: 180px;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
 .tags-card {
     position: absolute;
     left: 0;
@@ -197,6 +234,7 @@ Cards
     margin-left: 4.5%;
     margin-bottom: 12%;
 }
+
 .showmore-card {
     position: absolute;
     right: 0;
@@ -205,6 +243,7 @@ Cards
     margin-right: 4.5%;
     margin-bottom: 4%;
 }
+
 .showmore-card>a:hover {
     background: transparent;
     color: var(--primaryTextColor);
@@ -215,7 +254,7 @@ Cards
     margin-top: 1%;
 }
 
-.pages-cards > a {
+.pages-cards>a {
     display: inline-block;
     width: 30px;
     padding: 2px;
@@ -223,9 +262,11 @@ Cards
     border-radius: 5px;
     cursor: pointer;
 }
+
 /***********
 Contact Form
 ************/
+
 form {
     position: relative;
     min-height: 440px;
@@ -243,6 +284,10 @@ input, textarea {
     border: 1px solid var(--navColor);
     border-radius: 5px;
     margin-bottom: 1%;
+    background-color: var(--primaryColor);
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
 }
 
 input[type=submit] {
@@ -258,7 +303,7 @@ input[type=submit] {
     justify-content: center;
 }
 
-.contact-form > form > input[type=submit] {
+.contact-form>form>input[type=submit] {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -280,11 +325,12 @@ input::-ms-input-placeholder {
     /* Microsoft Edge */
     color: var(--secondaryColor);
 }
+
 /*****
 Footer
 ******/
 
-.footer {
+.footer-wrapper {
     display: flex;
     justify-content: space-between;
     margin-top: 2%;
@@ -342,6 +388,37 @@ Media Queries
 /* For phone screens */
 
 @media only screen and (min-width: 320px) and (max-width: 800px) {
+    .nav-left {
+        position: fixed;
+        left: -100%;
+        top: 6%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--secondaryColor);
+        width: 100%;
+        border: 1px solid var(--navColor);
+        border-radius: 10px;
+        transition: 0.3s;
+    }
+    .btnNav {
+        width: 100%;
+        border-radius: unset;
+        border: unset;
+    }
+
+    .btnNav:not(:last-child) {
+        border-bottom: 1px solid var(--navColor);
+    }
+
+    .nav-left.active {
+        left: 0;
+    }
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
     .about-wrapper, .content-cards {
         grid-template-columns: 1fr;
     }
