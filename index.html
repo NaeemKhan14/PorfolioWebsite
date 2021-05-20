@@ -30,7 +30,13 @@
                     <span class="bar"></span>
                 </div>
                 <div class="nav-right">
-                    <p>Toggle Dark Theme:</p>
+                    <p>Dark Theme: </p>
+                    <p style="margin-left: 10px; margin-top: 5px">
+                        <label class="switch">
+                            <input id="theme-toggle" type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </p>
                 </div>
             </div>
         </div>
@@ -57,7 +63,7 @@
                 </div>
                 <div class="about-right">
                     <div class="about-title">
-                        <h1>About Me</h1>
+                        <h1>Hello. I'm Naeem Khan</h1>
                     </div>
                     <p>
                         I’m a Computer Science Graduate from Heriot-Watt University. I have experience in both backend
@@ -87,10 +93,7 @@
                         Title here
                     </div>
                     <div class="content-card">
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a
-                            page when looking at its layout. readable content of a page when looking at its layout.
-                            readable content of a page when looking at its layout. readable content of a page when
-                            looking at its layout. </p>
+                        <img src="img/default-img.jpg" alt="abc">
                     </div>
                     <div class="tags-card">
                         Tags: Django, Python
@@ -104,8 +107,7 @@
                         Title here
                     </div>
                     <div class="content-card">
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a
-                            page when looking at its layout. </p>
+                        <img src="img/default-img.jpg" alt="abc">
                     </div>
                     <div class="tags-card">
                         Tags: Django, Python
@@ -119,8 +121,7 @@
                         Title here
                     </div>
                     <div class="content-card">
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a
-                            page when looking at its layout. </p>
+                        <img src="img/default-img.jpg" alt="abc">
                     </div>
                     <div class="tags-card">
                         Tags: Django, Python
@@ -194,6 +195,27 @@
             hamburger.classList.remove("active");
             navMenu.classList.remove("active");
         }
+
+        // Dark theme toggle.
+        var toggle = document.getElementById("theme-toggle");
+        // Store dark theme settings into session.
+        var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        if (storedTheme)
+            document.documentElement.setAttribute('data-theme', storedTheme)
+
+        toggle.onclick = function () {
+            var currentTheme = document.documentElement.getAttribute("data-theme");
+            var targetTheme = "light";
+
+            if (currentTheme === "light") {
+                targetTheme = "dark";
+            }
+
+            document.documentElement.setAttribute('data-theme', targetTheme)
+            localStorage.setItem('theme', targetTheme);
+        };
+
+
 
     </script>
 </body>
