@@ -3,12 +3,14 @@
     --primaryColor: #f7f7f7;
     --secondaryColor: #EBEBEB;
     --accentColor: #818181;
+    --activeColor: #c960c3;
 }
 html[data-theme='light'] {
     --primaryTextColor: #212529;
     --primaryColor: #f7f7f7;
     --secondaryColor: #EBEBEB;
     --accentColor: #818181;
+    --activeColor: #c960c3;
 }
 
 html[data-theme='dark'] {
@@ -16,6 +18,7 @@ html[data-theme='dark'] {
     --primaryColor: #212529;
     --secondaryColor: #353535;
     --accentColor: #b3c8d6;
+    --activeColor: #c96060;
 }
 /* Reset everything */
 
@@ -130,6 +133,12 @@ Navigation bar
     cursor: pointer;
 }
 
+.active {
+    color: var(--activeColor);
+}
+.active:hover {
+    color: var(--primaryColor);
+}
 .hamburger { display: none; }
 
 .bar {
@@ -224,11 +233,6 @@ S1 content/ About content
 
 .about-right { padding: 10px; }
 
-.about-title {
-    text-align: center;
-    border-bottom: 1px solid var(--primaryTextColor);
-}
-
 .face-plant { margin-bottom: 5%; }
 
 .face-plant>img {
@@ -238,13 +242,9 @@ S1 content/ About content
     object-fit: cover;
 }
 
-.info { margin-bottom: 2%; }
-
-.info-icon {
-    position: relative;
-    top: 5px;
+.about-right>span>a {
+    background-color: unset;
 }
-
 /****
 Cards
 *****/
@@ -272,7 +272,6 @@ Cards
     margin-bottom: 1%;
     font-weight: 600;
     font-size: 20px;
-    border-bottom: 1px solid var(--primaryTextColor);
 }
 
 .tags-card {
@@ -281,7 +280,7 @@ Cards
     bottom: 0;
     font-size: 13px;
     margin-left: 4.5%;
-    margin-bottom: 12%;
+    margin-bottom: 10%;
 }
 
 .showmore-card {
@@ -315,15 +314,24 @@ Cards
 /***********
 Contact Form
 ************/
+.contact-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.info { margin-bottom: 2%; }
+
+.info-icon {
+    position: relative;
+    top: 5px;
+}
 
 form {
     position: relative;
-    min-height: 440px;
+    min-height: 381px;
     display: flex;
     flex-direction: column;
-    width: 50%;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
 }
 
 input, textarea {
@@ -346,10 +354,7 @@ input[type=submit] {
 }
 
 .contact-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    width: 40%;
 }
 
 .contact-form>form>input[type=submit] {
@@ -437,6 +442,16 @@ Media Queries
     .main-container { width: 100%; }
 }
 
+/* Aligning image in the content card to avoid getting out of the div */
+@media (max-width: 800px) {
+    .content-card
+    {
+        height: 70%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
 /* For phone screens */
 
 @media only screen and (min-width: 320px) and (max-width: 800px) {
@@ -474,10 +489,15 @@ Media Queries
     }
     .about-left { align-items: center; }
     /* Forms */
-    form { width: 100%; }
     input, textarea, input[type=submit] { width: 100%; }
     /* Cards */
-
+    .contact-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact-form {
+        width: 100%;
+    }
     .tags-card {
         margin-bottom: 2%;
         margin-left: 3%;
