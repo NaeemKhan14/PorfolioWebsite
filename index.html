@@ -51,11 +51,14 @@
                 </div>
                 <div class="about-right">
                     <p>
-                        <h1>Hi, I'm Naeem Khan!</h1>
-                        <h1>I am a <span class="active">full-stack developer</span> and <span class="active">network & security</span> enthusiast.</h1>
+                    <h1>Hi, I'm Naeem Khan!</h1>
+                    <h1>I am a <span class="highlight-text">full-stack developer</span> and <span
+                            class="highlight-text">network & security</span> enthusiast.</h1>
                     </p>
-                    <span><a target="_blank" href="https://github.com/NaeemKhan14/"><img src="img/icons/github.svg" alt="Github"></a></span>
-                    <span><a target="_blank" href="https://www.linkedin.com/in/naeem-khan-"><img src="img/icons/linkedin.svg" alt="Linkedin"></a></span>
+                    <span><a target="_blank" href="https://github.com/NaeemKhan14/"><img id="toggle-color"
+                                src="img/icons/github.svg" alt="Github"></a></span>
+                    <span><a target="_blank" href="https://www.linkedin.com/in/naeem-khan-"><img id="toggle-color"
+                                src="img/icons/linkedin.svg" alt="Linkedin"></a></span>
                 </div>
             </div>
         </div>
@@ -65,7 +68,8 @@
             <div class="skills-wrapper">
                 <div class="skills-intro">
                     <h1>Skills</h1>
-                    <p>Here’s a list of things I am most proficient in. For a full list, please check out my <a href="#">CV here</a>.</p>
+                    <p>Here’s a list of things I am most proficient in. For a full list, please check out my <a
+                            href="#">CV here</a>.</p>
                 </div>
                 <div class="skill-cards-wrapper">
                     <div class="skill-card-body">
@@ -78,7 +82,8 @@
                             <img src="img/icons/skills/js.svg" alt="js-icon">
                         </div>
                         <div class="skill-card-desc">
-                            I have worked on several different website projects and I have experience building websites from scratch using HTML, CSS and JavaScript.
+                            I have worked on several different website projects and I have experience building websites
+                            from scratch using HTML, CSS and JavaScript.
                         </div>
                     </div>
                     <div class="skill-card-body">
@@ -91,7 +96,8 @@
                             <img src="img/icons/skills/csharp.svg" alt="csharp-icon">
                         </div>
                         <div class="skill-card-desc">
-                            Whether it is website or software development, Python is my go-to programming language. I also enjoy working with PHP.
+                            Whether it is website or software development, Python is my go-to programming language. I
+                            also enjoy working with PHP.
                         </div>
                     </div>
                     <div class="skill-card-body">
@@ -104,7 +110,8 @@
                             <img src="img/icons/skills/mysql.svg" alt="mysql-icon">
                         </div>
                         <div class="skill-card-desc">
-                            For relational database management, I use MySQL and PostgreSQL extensively. I also have experience working with Google’s Firebase and Firestore.
+                            For relational database management, I use MySQL and PostgreSQL extensively. I also have
+                            experience working with Google’s Firebase and Firestore.
                         </div>
                     </div>
                     <div class="skill-card-body">
@@ -117,7 +124,8 @@
                             <img src="img/icons/skills/kali.svg" alt="kali-icon">
                         </div>
                         <div class="skill-card-desc">
-                            I have worked with a number of different linux distributions for several years and I’m familiar with both desktop and server versions of many linux distros.
+                            I have worked with a number of different linux distributions for several years and I’m
+                            familiar with both desktop and server versions of many linux distros.
                         </div>
                     </div>
                 </div>
@@ -132,16 +140,17 @@
                         <h1>Selected Projects</h1>
                     </div>
                     <div class="projects-description">
-                        <p>Here are a few projects that I have worked on. <a href="#">Click here</a> to view the full list of projects.</p>
+                        <p>Here are a few projects that I have worked on. <a href="#">Click here</a> to view the full
+                            list of projects.</p>
                     </div>
                 </div>
                 <div class="project-tiles">
                     <div class="projects-row1">
                         <div class="project-1">
-                            
+
                         </div>
                         <div class="project-2">
-                            
+
                         </div>
                     </div>
                     <div class="projects-row2">
@@ -174,7 +183,8 @@
                         <input type="text" name="full_name" placeholder="Full name" />
                         <input type="email" name="email_field" placeholder="John.doe@example.com" />
                         <input type="tel" name="phone_num" placeholder="+971526698242" />
-                        <textarea name="user_msg" placeholder="Enter your message here..." cols="15" rows="5"></textarea>
+                        <textarea name="user_msg" placeholder="Enter your message here..." cols="15"
+                            rows="5"></textarea>
                         <br>
                         <input type="submit" value="Submit" />
                     </form>
@@ -203,6 +213,7 @@
                 </div>
             </div>
         </div>
+        <button onclick="topFunction()" id="goto-top-btn" title="Go to top"><img src="img/icons/round_expand_less_black_24dp.png" alt=""></button>
     </section>
     <script>
         // Opening the hamburger menu.
@@ -234,16 +245,37 @@
         toggle.onclick = function () {
             var currentTheme = document.documentElement.getAttribute("data-theme");
             var targetTheme = "light";
-
+            var color = "white";
             if (currentTheme === "light") {
                 targetTheme = "dark";
+                color = "black";
             }
 
             document.documentElement.setAttribute('data-theme', targetTheme)
             localStorage.setItem('theme', targetTheme);
         };
 
+        // Go to top button
 
+        //Get the button
+        var mybutton = document.getElementById("goto-top-btn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
 
     </script>
 </body>

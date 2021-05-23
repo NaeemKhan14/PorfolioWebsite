@@ -27,6 +27,7 @@ html[data-theme='dark'] {
     padding: 0;
     border: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 /***************************
@@ -95,6 +96,37 @@ ul {
     list-style-type: none;
 }
 
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+/***
+Misc
+****/
+.highlight-text {
+    color: var(--activeColor);
+}
+
+#goto-top-btn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    background-color: var(--secondaryColor);
+    color: white;
+    cursor: pointer;
+    border-radius: 50%;
+    -webkit-box-shadow: 5px 2px 15px -4px #000000; 
+    box-shadow: 5px 2px 15px -4px #000000;
+  }
+  
+  #myBtn:hover {
+    background-color: #555;
+  }
 /*******
 Sections
 ********/
@@ -264,7 +296,14 @@ Skills section
 .skills-intro>p {
     font-size: 1.563rem;
 }
-
+.skills-intro>p>a { 
+    text-decoration: underline;
+    color: unset;
+}
+.skills-intro>p>a:hover {
+    background-color: unset;
+    color: var(--accentColor);
+}
 .skill-cards-wrapper {
     display: flex;
 }
@@ -295,6 +334,15 @@ Projects
 }
 .projects-description {
     font-size: 1.563rem;
+}
+
+.projects-description>p>a { 
+    text-decoration: underline;
+    color: unset;
+}
+.projects-description>p>a:hover {
+    background-color: unset;
+    color: var(--accentColor);
 }
 
 .project-1, .project-2, .project-3, .project-4 {
