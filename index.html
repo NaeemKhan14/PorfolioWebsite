@@ -168,7 +168,7 @@
             <div class="contact-wrapper">
                 <div class="contact-info">
                     <h1 style="margin:0;">Contact Me</h1>
-                    <p>Have a query? Contact me!</p>
+                    <p><h5 style="margin-top: 0;">Have a query? Contact me!</h5></p>
                     <div class="info">
                         <ul>
                             <li><span class="material-icons material-icons-round info-icon">call</span> +971526698242
@@ -215,69 +215,10 @@
         </div>
         <button onclick="topFunction()" id="goto-top-btn" title="Go to top"><img src="img/icons/round_expand_less_black_24dp.png" alt=""></button>
     </section>
-    <script>
-        // Opening the hamburger menu.
-        const hamburger = document.querySelector(".hamburger");
-        const navMenu = document.querySelector(".nav-left");
 
-        hamburger.addEventListener("click", mobileMenu);
-
-        function mobileMenu() {
-            hamburger.classList.toggle("active");
-            navMenu.classList.toggle("active");
-        }
-        // Close hamburger menu when an item is clicked in it.
-        const navLink = document.querySelectorAll(".nav-left");
-        navLink.forEach(n => n.addEventListener("click", closeMenu));
-
-        function closeMenu() {
-            hamburger.classList.remove("active");
-            navMenu.classList.remove("active");
-        }
-
-        // Dark theme toggle.
-        var toggle = document.getElementById("theme-toggle");
-        // Store dark theme settings into session.
-        var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-        if (storedTheme)
-            document.documentElement.setAttribute('data-theme', storedTheme)
-
-        toggle.onclick = function () {
-            var currentTheme = document.documentElement.getAttribute("data-theme");
-            var targetTheme = "light";
-            var color = "white";
-            if (currentTheme === "light") {
-                targetTheme = "dark";
-                color = "black";
-            }
-
-            document.documentElement.setAttribute('data-theme', targetTheme)
-            localStorage.setItem('theme', targetTheme);
-        };
-
-        // Go to top button
-
-        //Get the button
-        var mybutton = document.getElementById("goto-top-btn");
-
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function () { scrollFunction() };
-
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
-        }
-
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
-
-    </script>
+    <script src="js/dark-theme-toggle.js"></script>
+    <script src="js/hamburger.js"></script>
+    <script src="js/goto-top-btn.js"></script>
 </body>
 
 </html>

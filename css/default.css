@@ -18,7 +18,7 @@ html[data-theme='dark'] {
     --primaryColor: #212529;
     --secondaryColor: #353535;
     --accentColor: #b3c8d6;
-    --activeColor: #c96060;
+    --activeColor: #ef5d5d;
 }
 /* Reset everything */
 
@@ -185,7 +185,7 @@ Navigation bar
     margin: 5px auto;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-    background-color: #101010;
+    background-color: var(--primaryTextColor);
 }
 
 .nav-right {
