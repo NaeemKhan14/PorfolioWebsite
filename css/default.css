@@ -343,9 +343,10 @@ Projects
     margin: 1%;
     line-height: 1rem;
 }
-.card-body>img {
+.card-body>button>img {
     max-height: 234px;
     width: 100%;
+    object-fit: cover;
 }
 .card-title {
     font-size: 1.3rem;
@@ -360,6 +361,55 @@ Projects
     margin-top: 0.7rem;
     font-size: 0.8rem;
     margin-bottom: 0.7rem;
+}
+.project-popup-btn {
+    cursor: pointer;
+    width: 100%;
+}
+.overlay-card {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: var(--primaryColor);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+.overlay-card a {
+    padding: 8px;
+    display: block;
+    transition: 0.3s;
+}
+.overlay-card a:hover {
+    background-color: unset;
+    color: var(--activeColor);
+}
+.overlay-card-wrapper {
+    display: flex;
+    position: relative;
+    top: 15%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    justify-content: center;
+}
+.overlay-card .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+.overlay-card-content {
+    width: 50%;
+}
+.overlay-card-content>img {
+    width: 50%;
+}
+.overlay-card-content>p>a {
+    display: unset;
+    padding: 0;
 }
 /***********
 Contact Form
@@ -496,23 +546,11 @@ Media Queries
 *************/
 
 /* For laptop screens */
-
 @media screen and (max-width: 1200px) {
     .main-container { width: 100%; }
 }
 
-/* Aligning image in the content card to avoid getting out of the div */
-@media (max-width: 800px) {
-    .content-card
-    {
-        height: 70%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-}
 /* For phone screens */
-
 @media only screen and (min-width: 320px) and (max-width: 800px) {
     /* Navbar */
     .nav-left {
@@ -565,6 +603,21 @@ Media Queries
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+    .overlay-card .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+    .overlay-card-content {
+        width: 90%;
+    }
+    .overlay-card-content>img {
+        width: 80%;
+        overflow: none;
+    }
+    .card-body>button>img {
+        max-height: 400px;
     }
     /* Forms */
     input, textarea, input[type=submit] { width: 100%; }
