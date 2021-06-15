@@ -317,8 +317,9 @@ Projects
     padding: 3% 0 3% 0;
 }
 .projects-top {
-    display: grid;
-    grid-template-columns: 0.7fr 1fr;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 .projects-description {
     font-size: 1.563rem;
@@ -595,10 +596,6 @@ Media Queries
     /*******
     Projects
     ********/
-    .projects-top {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
     .project-cards {
         flex-direction: column;
         justify-content: center;
